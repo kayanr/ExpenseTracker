@@ -27,11 +27,11 @@ public class ExpenseController {
 
 //    Request: GET /expense/{id}
 //    Response: Expense
-   /* @GetMapping("/expense/{id}")
+    @GetMapping("/expense/{id}")
     public Expense getExpenseById(@PathVariable int id){
         return expenseRepository.findById(id);
     }
-*/
+
 //    Request: POST /expense Expense
 //    Response: Expense
    /* @PostMapping("/expense")

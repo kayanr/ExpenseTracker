@@ -72,10 +72,47 @@ public class ExpenseRepository {
 
     public Expense findById(int id){
 
-        Expense expense = null;
+        //Expense expense = null;
 
 
-        return expense;
+        //return expense;
+
+        List<Expense> expenses = new ArrayList<>();
+        Expense expense2 = new Expense();
+        try {
+
+            Statement statement = conn.createStatement();
+            String sql = "select * from expenses" +
+                    " WHERE id >1 ";
+            //rs = stmt.executeQuery(sql);
+           ResultSet rs = statement.executeQuery(sql);
+
+            while(rs.next()){
+
+                Expense expense = new Expense();
+
+                expense.setId(rs.getInt("id"));
+                expense.setName(rs.getString("name"));
+                expense.setAmount(rs.getFloat("amount"));
+                expense.setCategory(rs.getString("category"));
+                expense.setDescription(rs.getString("description"));
+                //System.out.println(rs.getInt("id"));
+                expenses.add(expense);
+
+                    if (expense.getId() == id) {
+                        expense2 = expense;
+                    }
+                    else System.out.println("ID: "+ id+ " could not be found!");
+                }
+
+
+            statement.close();
+            rs.close();
+
+        }
+
+        catch(SQLException e){}
+     return expense2;
 
     }
 //
