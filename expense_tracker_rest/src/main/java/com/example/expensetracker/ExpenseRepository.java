@@ -55,7 +55,6 @@ public class ExpenseRepository {
                 expense.setAmount(rs.getFloat("amount"));
                 expense.setCategory(rs.getString("category"));
                 expense.setDescription(rs.getString("description"));
-                //System.out.println(rs.getInt("id"));
                 expenses.add(expense);
 
             }
@@ -82,8 +81,7 @@ public class ExpenseRepository {
         try {
 
             Statement statement = conn.createStatement();
-            String sql = "select * from expenses" +
-                    " WHERE id >1 ";
+            String sql = "select * from expenses";
             //rs = stmt.executeQuery(sql);
            ResultSet rs = statement.executeQuery(sql);
 
