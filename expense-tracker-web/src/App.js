@@ -21,11 +21,20 @@ class App extends React.Component
   })
 
   }
+
+  
   render(){
 
     let body =[]
     for(let i=0; i<this.state.expenses.length;i++){
-      body.push(<p>{this.state.expenses[i].name}</p>)
+     // body.push(<p>{this.state.expenses[i].name}</p>)
+     body.push(<div>
+         
+        <p style={{backgroundColor:"yellow", fontSize:"150%", backgroundSize:"150%"}}>{this.state.expenses[i].category} {this.state.expenses[i].name}
+        &emsp; ${this.state.expenses[i].amount} </p>
+     </div>
+     
+     )
     }
  
     return(
