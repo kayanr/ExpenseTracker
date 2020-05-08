@@ -1,14 +1,29 @@
 package com.example.expensetracker;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="expenses")
 public class Expense {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="amount")
     private double amount;
+
+    @Column(name="date")
     private Date date;
+
+    @Column(name="category")
     private String category;
+
+    @Column(name="description")
     private String description;
 
     public int getId() {
