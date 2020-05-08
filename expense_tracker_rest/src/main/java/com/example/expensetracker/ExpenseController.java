@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(value = "*")
+@CrossOrigin(origins = "*")
 @RestController
 public class ExpenseController {
 
@@ -16,7 +16,7 @@ public class ExpenseController {
 //    Response: "Up"
     @GetMapping("/ping")
     public String ping(){
-        return "Up";
+        return "Up expense tracker";
     }
 
 //    Request: GET /expenses
