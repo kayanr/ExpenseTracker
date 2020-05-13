@@ -10,7 +10,7 @@ import java.util.List;
 public class ExpenseController {
 
     @Autowired
-    private ExpenseRepositoryJDBC expenseRepositoryJDBC;
+    private ExpenseRepository expenseRepository;
 
 //    Request: GET /ping
 //    Response: "Up"
@@ -23,23 +23,23 @@ public class ExpenseController {
 //    Response: Expense[]
     @GetMapping("/expenses")
     public List<Expense> getAllExpenses(){
-        return expenseRepositoryJDBC.findAll();
+        return expenseRepository.findAll();
     }
 
 //    Request: GET /expense/{id}
 //    Response: Expense
     @GetMapping("/expense/{id}")
     public Expense getExpenseById(@PathVariable int id){
-        return expenseRepositoryJDBC.findById(id);
+        return expenseRepository.findById(id);
     }
 
 //    Request: POST /expense Expense
 //    Response: Expense
-   /* @PostMapping("/expense")
+    @PostMapping("/expense")
     public Expense saveExpense(@RequestBody Expense expense){
         return expenseRepository.save(expense);
     }
-*/
+
 //    Request: DELETE /expense/{id}
 //    Response: void
   /*  @DeleteMapping("/expense/{id}")

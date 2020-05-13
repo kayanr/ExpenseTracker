@@ -10,8 +10,4 @@ public interface ExpenseRepository extends CrudRepository<Expense, Integer> {
 List <Expense> findAll();
 Expense findById(int id);
 
-List<Expense> findByCategory(String category);
-
-
-
 }
