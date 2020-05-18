@@ -1,5 +1,6 @@
 package com.example.expensetracker;
 
+import com.example.expensetracker.model.Expense;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

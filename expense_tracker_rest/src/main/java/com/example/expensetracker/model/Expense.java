@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.expensetracker.model;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,5 +1,6 @@
 package com.example.expensetracker;
 
+import com.example.expensetracker.model.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
