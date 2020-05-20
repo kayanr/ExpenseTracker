@@ -11,9 +11,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private long id;
 
+    @JoinColumn(name="name_id")
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name="name")
     private Name name;
 
+    @JoinColumn(name = "user_id")
+    @OneToMany(cascade=CascadeType.ALL)
     @Column(name="expense")
     private List<Expense> expenses;
 
