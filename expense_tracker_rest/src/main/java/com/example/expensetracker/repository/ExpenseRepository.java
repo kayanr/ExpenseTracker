@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ExpenseRepository extends CrudRepository<Expense, Integer> {
+public interface ExpenseRepository extends CrudRepository<Expense, Long> {
 List <Expense> findAll();
-Expense findById(int id);
+Expense findById(long id);
 
 }

@@ -9,7 +9,7 @@ public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private long id;
 
     @Column(name="name")
     private String name;
@@ -26,11 +26,11 @@ public class Expense {
     @Column(name="description")
     private String description;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

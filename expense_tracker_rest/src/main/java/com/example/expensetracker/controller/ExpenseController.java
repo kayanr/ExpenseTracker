@@ -31,7 +31,7 @@ public class ExpenseController {
 //    Request: GET /expense/{id}
 //    Response: Expense
     @GetMapping("/expense/{id}")
-    public Expense getExpenseById(@PathVariable int id){
+    public Expense getExpenseById(@PathVariable long id){
         return expenseRepository.findById(id);
     }
 
