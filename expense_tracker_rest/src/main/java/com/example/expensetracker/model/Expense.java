@@ -8,7 +8,7 @@ import java.util.Date;
 public class Expense {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name="name")
@@ -17,9 +17,9 @@ public class Expense {
     @Column(name="amount")
     private double amount;
 
-    @Column(name="date")
+   /* @Column(name="date")
     private Date date;
-
+*/
     @Column(name="category")
     private String category;
 
@@ -50,14 +50,14 @@ public class Expense {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    /*public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
-
+*/
     public String getCategory() {
         return category;
     }
