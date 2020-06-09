@@ -10,12 +10,20 @@ export function ExpenseListView(props) {
 
   return (
     <div>
-      <button
-        onClick={props.toggle}
-        style={{ backgroundColor: "blue", float: "center" }}
-      >
-        New
-      </button>
+      <p align="right">
+        <button
+          onClick={props.toggle}
+          style={{
+            backgroundColor: "#809dff",
+            float: "center",
+            height: "30px",
+            width: "50px",
+            borderColor: "blue",
+          }}
+        >
+          New
+        </button>{" "}
+      </p>
       {body}
     </div>
   );
