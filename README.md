@@ -1,2 +1,2 @@
 # ExpenseTracker
- An example of a  expense tracker using Spring, Java and Rest
+ An example of a  expense tracker using React, Spring, Java and Rest
