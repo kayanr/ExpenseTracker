@@ -3,16 +3,15 @@ import "./ExpenseEdit.css";
 
 export function ExpenseEdit(props) {
   return (
-    <div>
-      Edit Page
-      <h1>Expense Tracker</h1>
-      <p>Expense tracker information:</p>
+    <>
+      <h1>Edit Page Expense Tracker</h1>
+      {/* <p>Expense tracker information:</p> */}
       <div className="row">
         {/* < <div class="column">
           <img src="/w3images/map.jpg" style="width: 100%;" />
         </div> --> */}
         <div className="column">
-          <form action="/action_page.php">
+          <form action="/action_page.php" style={{ alignContent: "center" }}>
             <label htmlFor="ename">Name:</label>
             <input
               type="text"
@@ -45,6 +44,6 @@ export function ExpenseEdit(props) {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }
