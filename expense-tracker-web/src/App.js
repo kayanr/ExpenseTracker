@@ -38,7 +38,7 @@ class App extends React.Component {
             toggle={this.toggleMode}
           />
         </div>
-        <div hidden={this.state.mode == "VIEW"}>
+        <div hidden={this.state.mode === "VIEW"}>
           <ExpenseEdit toggle={this.toggleMode} />
         </div>
       </div>
