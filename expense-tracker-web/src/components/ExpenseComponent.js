@@ -1,15 +1,15 @@
 import React from "react";
 
-let colorToDisplay = "";
+let categoryColor = "";
 export function ExpenseComponent(props) {
   //alert(props.expense.category);
   if (props.expense.category === "Food") {
-    colorToDisplay = (
+    categoryColor = (
       <div
         style={{
           border: "1px solid #d6f5d6",
           margin: "10px 200px",
-          backgroundColor: "#d6f5d6",
+          backgroundColor: "#D4E8D4",
         }}
       >
         <p style={{ float: "left" }}> {props.expense.description}</p>
@@ -19,12 +19,12 @@ export function ExpenseComponent(props) {
     );
   }
   if (props.expense.category === "Transportation") {
-    colorToDisplay = (
+    categoryColor = (
       <div
         style={{
           border: "1px solid #ffffcc",
           margin: "10px 200px",
-          backgroundColor: "#ffffcc",
+          backgroundColor: "#fff2ce",
         }}
       >
         <p style={{ float: "left" }}> {props.expense.description}</p>
@@ -34,12 +34,12 @@ export function ExpenseComponent(props) {
     );
   }
   if (props.expense.category === "Travel") {
-    colorToDisplay = (
+    categoryColor = (
       <div
         style={{
           border: "1px solid #f5ccff",
           margin: "10px 200px",
-          backgroundColor: "#f5ccff",
+          backgroundColor: "#E2D5E7",
         }}
       >
         <p style={{ float: "left" }}> {props.expense.description}</p>
@@ -49,7 +49,7 @@ export function ExpenseComponent(props) {
     );
   }
 
-  return <div>{colorToDisplay}</div>;
+  return <div>{categoryColor}</div>;
 
   /*  return (
     <div
