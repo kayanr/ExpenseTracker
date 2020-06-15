@@ -1,51 +1,36 @@
 import React, { Component } from "react";
 import "./ExpenseEdit.css";
-import axios from "axios";
 
-//start here
 export class AddExpense extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: "",
-      name: " ",
-      amount: 0.0,
-      category: " ",
-      description: " ",
-    };
-    this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
-  }
-
-  changeHandler(event) {
-    this.setState({ [event.target.name]: event.target.value });
-    //this.setState({ text: event.target.text });
-    //this.setState({ color: event.target.color });
-  }
-
-  submitHandler = (event) => {
+  submitExpense(event) {
     event.preventDefault();
-    console.log(this.state);
 
-    axios
+    let expense = {
+      id: this.refs.id.value,
+      name: this.refs.name.value,
+      amount: this.refs.amount.value,
+      category: this.refs.category.value,
+      description: this.refs.description.value,
+    };
 
-      .post("http://localhost:8080/expense", this.state)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    fetch("http://localhost:8080/expense", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(expense),
+    }).then((response) => response.json());
+
+    window.location.reload();
+  }
 
   render() {
-    const { id, name, amount, category, description } = this.state;
     return (
       // <div className="row">
       <>
         <h2>Add Expenses form test</h2>
         <div className="container">
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitExpense.bind(this)}>
             <label
               htmlFor="ename"
               style={{
@@ -60,8 +45,6 @@ export class AddExpense extends Component {
               type="text"
               id="ename"
               name="ename"
-              value={this.state.name}
-              onChange={this.changeHandler}
               placeholder="Enter name of expense..."
             />{" "}
             <br />
@@ -79,8 +62,6 @@ export class AddExpense extends Component {
               type="text"
               id="amount"
               name="amount"
-              value={this.state.amount}
-              onChange={this.changeHandler}
               placeholder=" Your expense amount..."
             />{" "}
             <br />
@@ -94,12 +75,7 @@ export class AddExpense extends Component {
             >
               Category:{" "}
             </label>
-            <select
-              id="category"
-              name="category"
-              value={this.state.category}
-              onChange={this.changeHandler}
-            >
+            <select id="category" name="category">
               <option value="Food">Food</option>
               <option value="Clothing">Clothing</option>
               <option value="Transportation">Transportation</option>
@@ -120,8 +96,6 @@ export class AddExpense extends Component {
               id="description"
               name="description"
               placeholder="Write something..."
-              value={this.state.description}
-              onChange={this.changeHandler}
               style={{ height: "170px" }}
             ></textarea>
             <br />
