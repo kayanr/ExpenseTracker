@@ -9,11 +9,15 @@ export class AddExpense extends Component {
     this.state = {
       name: "",
       amount: "",
-      category: "",
+      category: "Food",
       description: "",
     };
     //this.changeHandler = this.changeHandler.bind(this);
-    //this.submitHandler = this.submitHandler.bind(this);
+    this.nameChangeHandler = this.nameChangeHandler.bind(this);
+    this.amountChangeHandler = this.amountChangeHandler.bind(this);
+    this.categoryChangeHandler = this.categoryChangeHandler.bind(this);
+    this.nameChangeHandler = this.nameChangeHandler.bind(this);
+    this.descriptionChangeHandler = this.descriptionChangeHandler.bind(this);
   }
 
   //This is not working as correctly I will have to split up and
@@ -31,11 +35,11 @@ export class AddExpense extends Component {
   };
 
   categoryChangeHandler = (event) => {
-    this.setState({ category: event.target.category.value });
+    this.setState({ category: event.target.value });
   };
 
   descriptionChangeHandler = (event) => {
-    this.setState({ description: event.target.description.value });
+    this.setState({ description: event.target.value });
   };
 
   submitHandler = (event) => {
@@ -54,9 +58,8 @@ export class AddExpense extends Component {
   };
 
   render() {
-    //const { name, amount, category, description } = this.state;
+    const { name, amount, category, description } = this.state;
     return (
-      // <div className="row">
       <>
         <h2>Add Expenses form test</h2>
         <div className="container">
@@ -75,7 +78,7 @@ export class AddExpense extends Component {
               type="text"
               id="ename"
               name="ename"
-              value={this.state.name}
+              value={name}
               onChange={this.nameChangeHandler}
               placeholder="Enter name of expense..."
             />{" "}
@@ -94,8 +97,8 @@ export class AddExpense extends Component {
               type="text"
               id="amount"
               name="amount"
-              value={this.state.amount}
-              onChange={this.changeHandler}
+              value={amount}
+              onChange={this.amountChangeHandler}
               placeholder=" Your expense amount..."
             />{" "}
             <br />
@@ -112,13 +115,14 @@ export class AddExpense extends Component {
             <select
               id="category"
               name="category"
-              value={this.state.category}
-              onChange={this.changeHandler}
+              value={category}
+              onChange={this.categoryChangeHandler}
             >
               <option value="Food">Food</option>
               <option value="Clothing">Clothing</option>
               <option value="Transportation">Transportation</option>
               <option value="Travel">Travel</option>
+              <option value="Miscellaneous">Miscellaneous</option>
             </select>{" "}
             <br />
             <label
@@ -135,21 +139,23 @@ export class AddExpense extends Component {
               id="description"
               name="description"
               placeholder="Write something..."
-              value={this.state.description}
-              onChange={this.changeHandler}
+              value={description}
+              onChange={this.descriptionChangeHandler}
               style={{ height: "170px" }}
             ></textarea>
             <br />
             <input
               type="submit"
-              value="Submit"
+              value="Create"
               // style={{ backgroundColor: "#dae8f9" }}
             />
-            {/* <input
-              type="submit"
-              value="Cancel"
-              // style={{ backgroundColor: "#dae8f9" }}
-            /> */}
+            {
+              <input
+                type="submit"
+                value="Cancel"
+                // style={{ backgroundColor: "#dae8f9" }}
+              />
+            }
           </form>
         </div>
       </>
