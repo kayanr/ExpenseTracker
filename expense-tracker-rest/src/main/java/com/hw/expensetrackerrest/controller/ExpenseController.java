@@ -39,7 +39,8 @@ public class ExpenseController {
     //    Request: POST /expense Expense
 //    Response: Expense
     @PostMapping("/expense")
-    public Expense saveExpense(@RequestBody Expense expense){
+    public Expense saveExpense(@RequestBody Expense expense)
+    {
         return expenseRepository.save(expense);
     }
 

@@ -2,14 +2,15 @@ package com.hw.expensetrackerrest.model;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name="expenses")
 public class Expense {
 
+
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name="name")

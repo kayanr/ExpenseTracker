@@ -7,20 +7,21 @@ export class AddExpense extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "",
-      name: " ",
+      exName: "",
       amount: 0.0,
-      category: " ",
-      description: " ",
+      category: "",
+      description: "",
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
 
   changeHandler(event) {
-    this.setState({ [event.target.name]: event.target.value });
-    //this.setState({ text: event.target.text });
-    //this.setState({ color: event.target.color });
+    //this.setState({ [event.target.name]: event.target.value });
+    this.setState({ exName: event.target.exName });
+    this.setState({ amount: event.target.amount });
+    this.setState({ category: event.target.category });
+    this.setState({ description: event.target.description });
   }
 
   submitHandler = (event) => {
@@ -39,7 +40,7 @@ export class AddExpense extends Component {
   };
 
   render() {
-    const { id, name, amount, category, description } = this.state;
+    const { exName, amount, category, description } = this.state;
     return (
       // <div className="row">
       <>
@@ -60,7 +61,7 @@ export class AddExpense extends Component {
               type="text"
               id="ename"
               name="ename"
-              value={this.state.name}
+              value={this.state.exName}
               onChange={this.changeHandler}
               placeholder="Enter name of expense..."
             />{" "}
@@ -127,14 +128,14 @@ export class AddExpense extends Component {
             <br />
             <input
               type="submit"
-              value="Create"
+              value="Submit"
               // style={{ backgroundColor: "#dae8f9" }}
             />
-            <input
+            {/* <input
               type="submit"
               value="Cancel"
               // style={{ backgroundColor: "#dae8f9" }}
-            />
+            /> */}
           </form>
         </div>
       </>
