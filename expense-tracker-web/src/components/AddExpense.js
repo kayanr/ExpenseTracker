@@ -1,36 +1,54 @@
 import React, { Component } from "react";
 import "./ExpenseEdit.css";
+import axios from "axios";
 
+//start here
 export class AddExpense extends Component {
-  submitExpense(event) {
-    event.preventDefault();
-
-    let expense = {
-      id: this.refs.id.value,
-      name: this.refs.name.value,
-      amount: this.refs.amount.value,
-      category: this.refs.category.value,
-      description: this.refs.description.value,
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      amount: "",
+      category: "",
+      description: "",
     };
-
-    fetch("http://localhost:8080/expense", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(expense),
-    }).then((response) => response.json());
-
-    window.location.reload();
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
+  //This is not working as correctly I will have to split up and
+  //handle each change independently
+  changeHandler(event) {
+    //this.setState({ [event.target.name]: event.target.value });
+    this.setState({ name: event.target.name.value });
+    this.setState({ amount: event.target.amount.value });
+    this.setState({ category: event.target.category.value });
+    this.setState({ description: event.target.description.value });
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+
+    axios
+
+      .post("http://localhost:8080/expense", this.state)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
+    //const { name, amount, category, description } = this.state;
     return (
       // <div className="row">
       <>
         <h2>Add Expenses form test</h2>
         <div className="container">
-          <form onSubmit={this.submitExpense.bind(this)}>
+          <form onSubmit={this.submitHandler}>
             <label
               htmlFor="ename"
               style={{
@@ -45,6 +63,8 @@ export class AddExpense extends Component {
               type="text"
               id="ename"
               name="ename"
+              value={this.state.name}
+              onChange={this.changeHandler}
               placeholder="Enter name of expense..."
             />{" "}
             <br />
@@ -62,6 +82,8 @@ export class AddExpense extends Component {
               type="text"
               id="amount"
               name="amount"
+              value={this.state.amount}
+              onChange={this.changeHandler}
               placeholder=" Your expense amount..."
             />{" "}
             <br />
@@ -75,7 +97,12 @@ export class AddExpense extends Component {
             >
               Category:{" "}
             </label>
-            <select id="category" name="category">
+            <select
+              id="category"
+              name="category"
+              value={this.state.category}
+              onChange={this.changeHandler}
+            >
               <option value="Food">Food</option>
               <option value="Clothing">Clothing</option>
               <option value="Transportation">Transportation</option>
@@ -96,19 +123,21 @@ export class AddExpense extends Component {
               id="description"
               name="description"
               placeholder="Write something..."
+              value={this.state.description}
+              onChange={this.changeHandler}
               style={{ height: "170px" }}
             ></textarea>
             <br />
             <input
               type="submit"
-              value="Create"
+              value="Submit"
               // style={{ backgroundColor: "#dae8f9" }}
             />
-            <input
+            {/* <input
               type="submit"
               value="Cancel"
               // style={{ backgroundColor: "#dae8f9" }}
-            />
+            /> */}
           </form>
         </div>
       </>

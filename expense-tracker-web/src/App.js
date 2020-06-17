@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import { ExpenseListView } from "./components/ExpenseListView";
 import { ExpenseEdit } from "./components/ExpenseEdit";
-//import { AddExpense } from "./components/AddExpense";
-import { AddExpenseFetch } from "./components/AddExpenseFetch";
+import { AddExpense } from "./components/AddExpense";
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +42,7 @@ class App extends React.Component {
         {/* <div hidden={this.state.mode === "VIEW"}> */}
         {/* <ExpenseEdit toggle={this.toggleMode} /> */}
         {/* <AddExpense toggle={this.toggleMode} /> */}
-        <AddExpenseFetch />
+        <AddExpense />
         {/* </div> */}
         <ExpenseListView expenses={this.state.expenses} />
       </div>
