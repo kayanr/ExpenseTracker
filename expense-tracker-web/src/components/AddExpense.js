@@ -12,19 +12,31 @@ export class AddExpense extends Component {
       category: "",
       description: "",
     };
-    this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
+    //this.changeHandler = this.changeHandler.bind(this);
+    //this.submitHandler = this.submitHandler.bind(this);
   }
 
   //This is not working as correctly I will have to split up and
   //handle each change independently
-  changeHandler(event) {
-    //this.setState({ [event.target.name]: event.target.value });
-    this.setState({ name: event.target.name.value });
-    this.setState({ amount: event.target.amount.value });
+  nameChangeHandler = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
+
+  amountChangeHandler = (event) => {
+    this.setState({
+      amount: event.target.value,
+    });
+  };
+
+  categoryChangeHandler = (event) => {
     this.setState({ category: event.target.category.value });
+  };
+
+  descriptionChangeHandler = (event) => {
     this.setState({ description: event.target.description.value });
-  }
+  };
 
   submitHandler = (event) => {
     event.preventDefault();
@@ -64,7 +76,7 @@ export class AddExpense extends Component {
               id="ename"
               name="ename"
               value={this.state.name}
-              onChange={this.changeHandler}
+              onChange={this.nameChangeHandler}
               placeholder="Enter name of expense..."
             />{" "}
             <br />
