@@ -62,6 +62,7 @@ export class AddExpense extends Component {
     return (
       <>
         <div className="container">
+          <h1 align="center">Add Expenses</h1>
           <form onSubmit={this.submitHandler}>
             <label htmlFor="ename">Name: </label>
             <input
