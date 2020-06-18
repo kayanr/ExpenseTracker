@@ -2,7 +2,6 @@ import React from "react";
 
 let categoryColor = "";
 export function ExpenseComponent(props) {
-  //alert(props.expense.category);
   if (props.expense.category === "Food") {
     categoryColor = (
       <div
@@ -97,38 +96,5 @@ export function ExpenseComponent(props) {
     );
   }
 
-  //Do for Clothing ...blue and miscellaneous...pink
-
   return <div>{categoryColor}</div>;
-
-  /*  return (
-    <div
-      style={{
-        border: "1px solid blue",
-        margin: "10px 200px",
-        backgroundColor: "#03fcb1",
-      }}
-    >
-      <p style={{ float: "left" }}> {props.expense.description}</p>
-      <p style={{ float: "right" }}> {props.expense.amount}</p>
-      <p style={{ float: "center" }}> {props.expense.category}</p>
-      <div style={{ clear: "both" }} />
-    </div>
-  ); */
-
-  /*  const Condition1 = () => {
-    return (
-      <div>
-        <p>If true, display this!</p>
-      </div>
-    );
-  };
-  
-  const Condition2 = () => {
-    return (
-      <div>
-        <p>If false, display this!</p>
-      </div>
-    );
-  }; */
 }

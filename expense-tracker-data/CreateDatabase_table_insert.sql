@@ -14,13 +14,14 @@ CREATE TABLE `expenses` (
 
 select * from expenses;
 
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (1,'breakfast',10.15,'Food','1st meal');
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (2,'lunch',14.50,'Food','2nd meal');
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (3,'dinner',20.99,'Food','3rd meal');
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (4,'blouse',30.00,'Clothing','retail therapy');
-INSERT INTO`expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (5,'gas',14.50,'transportation','out of gas');
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (6,'pens',14.50,'office supplies','need to write');
-INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES (7,'stapler',4.50,'office supplies','prvious stapler broke');
+
+INSERT INTO `expenses` (`id`,`name`,`amount`,`category`,`description`) VALUES 
+(1,'Dinner', 53.97,'Food','dinner at Cheesecake Factory'),
+(2,'Fare', 2.75,'Transportation','Subway Fare'),
+(3,'Fare', 2.75,'Transportation','Subway Fare'),
+(4,'Lodging', 280.00,'Travel','Lodging for weekend'),
+(5,'Lunch', 6.59,'Transportation','Lunch at deli');
+
 
 select * from expenses;
 

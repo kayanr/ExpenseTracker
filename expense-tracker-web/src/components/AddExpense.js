@@ -11,8 +11,10 @@ export class AddExpense extends Component {
       amount: "",
       category: "Food",
       description: "",
+      mode: "EDIT",
     };
-    //this.changeHandler = this.changeHandler.bind(this);
+
+    this.toggleMode = this.toggleMode.bind(this);
     this.nameChangeHandler = this.nameChangeHandler.bind(this);
     this.amountChangeHandler = this.amountChangeHandler.bind(this);
     this.categoryChangeHandler = this.categoryChangeHandler.bind(this);
@@ -20,7 +22,7 @@ export class AddExpense extends Component {
     this.descriptionChangeHandler = this.descriptionChangeHandler.bind(this);
   }
 
-  //This is not working as correctly I will have to split up and
+  //This is not working correctly as one changeHandler function so I had to split up and
   //handle each change independently
   nameChangeHandler = (event) => {
     this.setState({
@@ -57,23 +59,17 @@ export class AddExpense extends Component {
       });
   };
 
+  toggleMode() {
+    this.setState({ mode: this.state.mode === "EDIT" ? "VIEW" : "VIEW" });
+  }
+
   render() {
-    const { name, amount, category, description } = this.state;
+    const { name, amount, category, description, mode } = this.state;
     return (
       <>
-        <h2>Add Expenses form test</h2>
         <div className="container">
           <form onSubmit={this.submitHandler}>
-            <label
-              htmlFor="ename"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Name:{" "}
-            </label>
+            <label htmlFor="ename">Name: </label>
             <input
               type="text"
               id="ename"
@@ -83,16 +79,7 @@ export class AddExpense extends Component {
               placeholder="Enter name of expense..."
             />{" "}
             <br />
-            <label
-              htmlFor="amount"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Amount ($):{" "}
-            </label>
+            <label htmlFor="amount">Amount ($): </label>
             <input
               type="text"
               id="amount"
@@ -102,16 +89,7 @@ export class AddExpense extends Component {
               placeholder=" Your expense amount..."
             />{" "}
             <br />
-            <label
-              htmlFor="category"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Category:{" "}
-            </label>
+            <label htmlFor="category">Category: </label>
             <select
               id="category"
               name="category"
@@ -125,16 +103,7 @@ export class AddExpense extends Component {
               <option value="Miscellaneous">Miscellaneous</option>
             </select>{" "}
             <br />
-            <label
-              htmlFor="description"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Description:{" "}
-            </label>
+            <label htmlFor="description">Description: </label>
             <textarea
               id="description"
               name="description"
@@ -144,18 +113,17 @@ export class AddExpense extends Component {
               style={{ height: "170px" }}
             ></textarea>
             <br />
-            <input
+            <input type="reset" value="Cancel" />
+            &nbsp; &nbsp; &nbsp;
+            <button
               type="submit"
-              value="Create"
-              // style={{ backgroundColor: "#dae8f9" }}
-            />
-            {
-              <input
-                type="submit"
-                value="Cancel"
-                // style={{ backgroundColor: "#dae8f9" }}
-              />
-            }
+              height="100px;"
+              style={{ backgroundColor: "#bbb" }}
+              onClick={!mode}
+            >
+              {" "}
+              Create
+            </button>
           </form>
         </div>
       </>
