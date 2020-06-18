@@ -11,10 +11,8 @@ export class AddExpense extends Component {
       amount: "",
       category: "Food",
       description: "",
-      mode: "EDIT",
     };
 
-    this.toggleMode = this.toggleMode.bind(this);
     this.nameChangeHandler = this.nameChangeHandler.bind(this);
     this.amountChangeHandler = this.amountChangeHandler.bind(this);
     this.categoryChangeHandler = this.categoryChangeHandler.bind(this);
@@ -59,12 +57,8 @@ export class AddExpense extends Component {
       });
   };
 
-  toggleMode() {
-    this.setState({ mode: this.state.mode === "EDIT" ? "VIEW" : "VIEW" });
-  }
-
   render() {
-    const { name, amount, category, description, mode } = this.state;
+    const { name, amount, category, description } = this.state;
     return (
       <>
         <div className="container">
@@ -119,7 +113,6 @@ export class AddExpense extends Component {
               type="submit"
               height="100px;"
               style={{ backgroundColor: "#bbb" }}
-              onClick={!mode}
             >
               {" "}
               Create
