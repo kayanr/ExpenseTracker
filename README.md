@@ -1,9 +1,5 @@
 # Expense Tracker
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/SpringBoot-Framework-brightgreen)
-![REST API](https://img.shields.io/badge/REST-API-blue)
-
 A simple **Expense Tracker** built with **Java and Spring Boot** that demonstrates building REST APIs and performing CRUD operations to manage financial records.
 
 ---
@@ -17,14 +13,14 @@ Users can add, view, update, and delete expense records stored in a relational d
 
 ## 🛠️ Tech Stack
 
-**Backend**
+### Backend
 
 * Java
 * Spring Boot
 * Spring Data JPA
 * REST APIs
 
-**Database**
+### Database
 
 * MySQL
 
@@ -36,6 +32,12 @@ Users can add, view, update, and delete expense records stored in a relational d
 * View all expenses
 * Update existing expense records
 * Delete expenses
+
+---
+
+## 📷 Screenshot
+
+![Expense Tracker](Screenshots/expense_tracker_list.png)
 
 ---
 
@@ -64,5 +66,3 @@ Application runs at:
 ```
 http://localhost:8080
 ```
-
----
