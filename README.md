@@ -16,9 +16,6 @@ The React frontend communicates with a Spring Boot REST API that stores expense 
 ### Frontend
 
 * React
-* JavaScript
-* HTML
-* CSS
 
 ### Backend
 
